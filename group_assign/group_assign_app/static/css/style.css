@@ -1,0 +1,13 @@
+/* Hide arrow spinners from any number field
+Code taken from https://thatstevensguy.com/programming/disable-arrows-on-number-inputs/
+Christopher A. Stevens - May 13, 2016 */
+
+/* Feature added by Rhys */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}

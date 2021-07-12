@@ -1,0 +1,15 @@
+{# Created by Rhys #}
+{% extends "group_assign_app/base.html"%}
+{% block title %} - Update a Job{%endblock%}
+{% block updateJobs %}
+<h3>Update a Job Form </h3>
+	<div>
+		<form action = "" method = "POST">
+		{% csrf_token %}
+			<table>
+				{{ jobAdForm.as_table }}
+			</table>
+			<input type="submit" class="btn btn-primary" value="Update job advertisement">
+		</form>
+	</div>
+{% endblock %}

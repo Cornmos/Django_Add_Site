@@ -1,0 +1,35 @@
+{% extends "group_assign_app/base.html"%}
+{% block title %} - Show all Employer{%endblock%}
+
+{% block Show_Employers %}
+
+<table>
+  <tr>
+  <th>ID</th>
+  <th>Company Name</th>
+  <th>Contact Number</th>
+  <th>Email</th>
+  <th>Occupation</th>
+  </tr>
+
+
+  {% for data in Employer %}
+  <tr>
+    <td>{{data.emplo_id}}</td>
+    <td>{{data.emplo_comname}}</td>
+    <td>{{data.emplo_number}}</td>
+    <td>{{data.emplo_email}}</td>
+    <td>{{data.emplo_occupation}}</td>
+    <td></td>
+    <td>
+      <a href="edit_emplo_form/{{data.emplo_id}}">Edit</a>
+    </td>
+    <td>
+      <a href="delete_emplo_form/{{data.emplo_id}}">Delete</a>
+    </td>
+  </tr>
+
+  {% endfor %}
+
+</table>
+{% endblock %}

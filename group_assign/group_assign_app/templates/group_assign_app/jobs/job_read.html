@@ -1,0 +1,44 @@
+{# Created by Rhys #}
+{% extends "group_assign_app/base.html"%}
+{% block title %} - Job Listings{%endblock%}
+{% block listjobs %}
+
+<h1>Job Ads</h1>
+	{% if jobs %}
+
+	<table border="1" style="width:50%">
+		<tr>
+			<td>Job Number</td>
+			<td>Job Title</td>
+			<td>Employer</td>
+			<td width="50%">Job Description</td>
+			<td width="25%">Date Added</td>
+			<td>Salary</td>
+		</tr>
+		<tr>
+			{% for job in jobs %}
+			<td>{{job.jobId}}</td>
+			<td>{{job.jobTitle}}</td>
+			<td>{{job.employer}}</td>
+			<td>{{job.jobDescription}}</td>
+			<td>{{job.dateAdded}}</td>
+      <td>{{job.salary}}</td>
+			<td>
+				<form action="{% url 'jobAdUpdate' job.jobId %}" method="POST">
+					{% csrf_token %}
+					<input type="submit" value="Update">
+				</form>
+			</td>
+			<td>
+				<form action="{% url 'jobAdDelete' job.jobId %}" method="POST">
+					{% csrf_token %}
+					<input type="submit" value="Delete">
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+	<h3>No job listings</h3>
+	{% endif %}
+{%endblock%}

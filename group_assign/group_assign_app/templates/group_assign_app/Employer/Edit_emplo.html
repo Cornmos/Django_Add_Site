@@ -1,0 +1,26 @@
+{% extends "group_assign_app/base.html"%}
+
+{% block Edit_Employer %}
+
+
+<form method = "POST" action = "/update_emplo_form/{{ Employer.emplo_id }}">
+  {% csrf_token %}
+  <table>
+    <tr><td><input name = "emplo_id" required value = "{{ Employer.emplo_id}}">
+    </td></tr>
+    <tr><td><input name = "emplo_comname" required value = "{{ Employer.emplo_comname}}">
+    </td></tr>
+    <tr><td><input name = "emplo_number" required value = "{{ Employer.emplo_number}}">
+    </td></tr>
+    <tr><td><input name = "emplo_email" required value = "{{ Employer.emplo_email}}">
+    </td></tr>
+    <tr><td><input name = "emplo_occupation" required value = "{{ Employer.emplo_occupation}}">
+    </td></tr>
+    <tr>
+      <td>
+        <button type = "submit">Update</button>
+      </td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

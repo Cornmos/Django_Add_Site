@@ -1,0 +1,24 @@
+{% extends "group_assign_app/base.html"%}
+{% block title %} Enter Employer Details{%endblock%}
+
+{% block Add_Employer %}
+
+<h3>Create an Employer Form </h3>
+
+<form method = "POST" action = "add_emplo_form" style="font-style: italic;">
+   {% csrf_token %}
+   <label>ID:</label>
+   <div>{{form.emplo_id}}</div>
+   <label>Company Name:</label>
+   <div>{{ form.emplo_comname }}</div>
+   <label>Contact Number:</label>
+   <div>{{form.emplo_number}}</div>
+   <label>Email:</label>
+   <div>{{form.emplo_email}}</div>
+   <label>Occupation:</label>
+   <div>{{form.emplo_occupation}}</div>
+   <div>
+     <button type = 'submit'>Add</button>
+   </div>
+</form>
+{% endblock %}

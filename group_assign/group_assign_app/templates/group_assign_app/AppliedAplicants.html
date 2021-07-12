@@ -1,0 +1,64 @@
+{% extends "group_assign_app/base.html"%}
+
+{% block title %}Applied Aplicants{%endblock%}
+
+
+{% block AppliedAplicants %}
+<body>
+    <br><br>
+    <a href="{% url 'AppliedAplicants' %}">Add</a>
+	<a href="{% url 'Searchapplied' %}">Show</a>
+	<a href="{% url 'AppliedAplicants4' %}">Update</a>
+	<a href="{% url 'AppliedAplicants4' %}">Delete</a>
+	
+    {%if formtype == 1 %}
+    <form action = "/AddApplied/" method = "POST" novalidate>
+		{% csrf_token %}
+			<table>
+				{{ AppliedForm.as_table }}
+			</table>
+			<input type="submit" value="Add Applied Aplicant">
+		</form>
+    {% endif %}
+    {%if formtype == 2 %}
+    <form action = "/UpdateApplied/" method = "POST" novalidate>
+		{% csrf_token %}
+			<table>
+				{{ AppliedForm.as_table }}
+			</table>
+			<input type="submit" value="Update Applied Aplicant">
+		</form>
+    {% endif %}
+    {%if formtype == 3 %}
+    <table border="1" style="width:50%">
+		<tr>
+			<td>Aplication ID</td>
+			<td>Add ID</td>
+			<td>Employee ID</td>
+			<td>Date Applied</td>
+			<td>Offered Money</td>
+			<td>Add Duration</td>
+		</tr>
+		
+			{% for app in Apps %}
+		<tr>
+			<td>{{app.appliedId}}</td>
+			<td>{{app.ad_ID}}</td>
+			<td>{{app.Employee_Id}}</td>
+			<td>{{app.dateApplied}}</td>
+      		<td>{{app.moneyOffered}}</td>
+			<td>{{app.Add_duration}} weeks</td>
+		</tr>
+			{% endfor %}
+    {% endif %}
+    {%if formtype == 4 %}
+    <form action = "/DelApplied/" method = "POST" novalidate>
+		{% csrf_token %}
+			<table>
+				{{ AppliedForm.as_table }}
+			</table>
+			<input type="submit" value="Delete Applied Aplicant">
+		</form>
+    {% endif %}
+</body>
+{% endblock %}

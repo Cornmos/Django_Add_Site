@@ -1,0 +1,17 @@
+{# Created by Rhys #}
+{% extends "group_assign_app/base.html"%}
+{% block title %} - Create a Job{%endblock%}
+{% block createJobs %}
+
+<h3>Create a Job Form </h3>
+
+	<div>
+		<form action = "" method = "post">
+		{% csrf_token %}
+			<table>
+				{{ jobAdForm.as_table }}
+			</table>
+			<input type="submit" class="btn btn-primary" value="Add job advertisement">
+		</form>
+	</div>
+{% endblock %}

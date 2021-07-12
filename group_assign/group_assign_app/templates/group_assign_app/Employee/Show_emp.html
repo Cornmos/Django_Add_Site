@@ -1,0 +1,38 @@
+{% extends "group_assign_app/base.html"%}
+{% block title %} - Show all Employee{%endblock%}
+
+{% block Show_EmployeeJobs %}
+
+<table>
+  <tr>
+  <th>ID</th>
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>Qualification</th>
+  <th>Expected Salary</th>
+  <th>Contact Number</th>
+  <th>Email</th>
+  </tr>
+
+
+  {% for x in Employee %}
+  <tr>
+    <td>{{x.emp_id}}</td>
+    <td>{{x.emp_fname}}</td>
+    <td>{{x.emp_lastname}}</td>
+    <td>{{x.emp_qualification}}</td>
+    <td>{{x.emp_expectedsalary}}</td>
+    <td>{{x.emp_contact_no}}</td>
+    <td>{{x.emp_email}}</td>
+    <td>
+      <a href="edit_emp_form/{{x.emp_id}}">Edit</a>
+    </td>
+    <td>
+      <a href="delete_emp_form/{{x.emp_id}}">Delete</a>
+    </td>
+  </tr>
+
+  {% endfor %}
+
+</table>
+{% endblock %}
